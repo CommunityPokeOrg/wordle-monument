@@ -48,7 +48,8 @@
   }
   .menubar span u { text-decoration: underline; }
   .viewport { position: relative; flex: 1; background: #000; overflow: hidden; }
-  #scene { position: absolute; inset: 0; display: block; }
+  /* Keep the canvas as the pointer target and let OrbitControls own touch gestures. */
+  #scene { position: absolute; inset: 0; display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
 
   /* ===== CRT overlay ===== */
   .crt::before {
@@ -71,6 +72,7 @@
     box-shadow: 0 0 12px rgba(51,255,102,.25), inset 0 0 30px rgba(51,255,102,.05);
     color: var(--phosphor); padding: 10px 12px; font-size: 12px; line-height: 1.5;
     text-shadow: 0 0 6px rgba(51,255,102,.7);
+    pointer-events: none;
   }
   .panel h2 {
     font-size: 12px; letter-spacing: 2px; color: #fff;
